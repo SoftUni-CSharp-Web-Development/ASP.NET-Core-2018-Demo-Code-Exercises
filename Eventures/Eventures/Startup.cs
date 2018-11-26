@@ -1,4 +1,5 @@
 ﻿using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Hosting;
@@ -11,6 +12,7 @@ using Eventures.Middlewares.MiddlewareExtensions;
 using Eventures.Models;
 using Eventures.Services.Eventures.Web.Services.EventureEvents;
 using Eventures.Services.Eventures.Web.Services.EventureEvents.Contracts;
+using Eventures.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -63,6 +65,7 @@ namespace Eventures
                     facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                     facebookOptions.Scope.Add("instagram_basic");
                 });
+            services.AddAutoMapper();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

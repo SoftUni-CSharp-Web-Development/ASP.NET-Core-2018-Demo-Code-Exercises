@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Eventures.MappingConfigurations;
+using Eventures.Models;
 
 namespace Eventures.ViewModels
 {
-    public class RegisterViewModel
+    public class RegisterViewModel : IMapTo<EventuresUser>
     {
         [Required]
         [Display(Name = "Username")]
