@@ -1,0 +1,46 @@
+﻿@model Eventures.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container" style="padding-top: 20px; text-align: center">
+    <h2 style="font-weight: bold">@ViewData["Title"]</h2>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <section>
+                <form method="post">
+                    <hr style="height: 3px; background-color: #AFEEEE" />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Username"></label>
+                        <input asp-for="Username" class="form-control" placeholder="Username..." />
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" placeholder="Password..." />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <hr style="height: 3px; background-color: #AFEEEE" />
+                    <div class="form-group">
+                            <label asp-for="RememberMe"></label>
+                                <input asp-for="RememberMe" />
+                    </div>
+                    <hr style="height: 3px; background-color: #AFEEEE" />
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" style="background-color: #AFEEEE">Login</button>
+                    </div>
+                    <div class="form-group">
+                        <p>
+                            <a asp-action="ForgotPassword" asp-controller="Account">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-action="Register" asp-controller="Account">Register as a new user</a>
+                        </p>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿@model Eventures.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "About";
+}
+<div class="container" style="padding-top: 20px; text-align: center">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-2">
+            <section>
+                <h2 style="font-weight: bold">@ViewData["Title"]</h2>
+                <form method="post">
+                    <hr style="height: 3px; background-color: #AFEEEE" />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label asp-for="Username"></label>
+                                <input asp-for="Username" class="form-control" placeholder="Username..." />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" class="form-control" placeholder="Password..." />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" placeholder="Email..." />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ConfirmPassword"></label>
+                                <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm Password..." />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="height: 3px; background-color: #AFEEEE" />
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label asp-for="FirstName"></label>
+                                <input asp-for="FirstName" class="form-control" placeholder="First Name..." />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label asp-for="LastName"></label>
+                                <input asp-for="LastName" class="form-control" placeholder="Last Name..." />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label asp-for="UniversalCitizenNumber"></label>
+                                <input asp-for="UniversalCitizenNumber" class="form-control" placeholder="Universal Citizen Number..." />
+                                <span asp-validation-for="UniversalCitizenNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="height: 3px; background-color: #AFEEEE" />
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default" style="background-color: #AFEEEE; color: black">Register</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</div>

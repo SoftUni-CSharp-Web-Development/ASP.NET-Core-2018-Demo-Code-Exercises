@@ -1,0 +1,54 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Identity
+
+@inject UserManager<EventuresUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+    var currentUser = await UserManager.GetUserAsync(this.User);
+    var isCurrentUserAuthenticated = this.User?.Identity?.IsAuthenticated;
+}
+
+@if (isCurrentUserAuthenticated.HasValue && isCurrentUserAuthenticated.Value)
+{
+    if (this.User.IsInRole("Admin"))
+    {
+        <div class="container" style="padding: 20px 30px 0 0">
+            <div class="jumbotron" style="background-color: #AFEEEE; text-align: center">
+                <h2 style="font-weight: bold">Greetings, Administrator - @UserManager.GetUserName(this.User)!</h2>
+                <hr style="height: 3px; background-color: darkgrey" />
+                <p>
+                    <strong style="color: darkgrey">Enjoy your work.</strong>
+                </p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container" style="padding: 20px 30px 0 0">
+            <div class="jumbotron" style="background-color: #AFEEEE; text-align: center">
+                <h2 style="font-weight: bold">Welcome, @UserManager.GetUserName(this.User)!</h2>
+                <hr style="height: 3px; background-color: darkgrey" />
+                <p>
+                    <strong style="color: darkgrey">Eventures wishes you an exciting experience.</strong>
+                </p>
+            </div>
+        </div>
+    }
+
+}
+else
+{
+    <div class="container" style="padding: 20px 30px 0 0">
+        <div class="jumbotron" style="background-color: #AFEEEE">
+            <h2 style="font-weight: bold">Eventures - The best ticket service in the world.</h2>
+            <hr style="height: 3px; background-color: black" />
+            <p>
+                <strong><a asp-action="Login" asp-controller="Account">Login</a> to start "eventing".</strong>
+            </p>
+            <p>
+                <strong><a asp-action="Register" asp-controller="Account">Register</a> if you don't have an account.</strong>
+            </p>
+        </div>
+    </div>
+}
