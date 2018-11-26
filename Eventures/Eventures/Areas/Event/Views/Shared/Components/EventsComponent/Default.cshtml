@@ -1,0 +1,12 @@
+﻿@using Eventures.Areas.Event.ViewModels
+@model IEnumerable<Eventures.Areas.Event.ViewModels.EventureEventViewModel>
+@{
+}
+
+@foreach (var eventureEvent in Model)
+{
+    <div class="row">
+        <h3>@eventureEvent.Name</h3>
+        <h3>@eventureEvent.Place</h3>
+    </div>
+}
