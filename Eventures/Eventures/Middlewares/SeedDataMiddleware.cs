@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Eventures.Data;
 using Eventures.Models;
@@ -29,12 +30,32 @@ namespace Eventures.Middlewares
                 this.SeedEvents(dbContext);
             }
 
+            if (!dbContext.Orders.Any())
+            {
+                this.SeedOrders(dbContext);
+            }
+
             if (!dbContext.Roles.Any())
             {
                 await this.SeedRoles(usermanager, roleManager);
             }
 
             await this.next(context);
+        }
+
+        private void SeedOrders(EventuresDbContext dbContext)
+        {
+            var eventureEvent = dbContext.EventureEvents.FirstOrDefault();
+            var user = dbContext.Users.FirstOrDefault();
+            var order = new Order
+            {
+                CreatedOn = DateTime.Now.AddDays(1),
+                Event = eventureEvent,
+                User = user
+            };
+            dbContext.Add(order);
+
+            dbContext.SaveChanges();
         }
 
         private async Task SeedRoles(

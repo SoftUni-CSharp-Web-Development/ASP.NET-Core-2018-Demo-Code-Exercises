@@ -4,7 +4,7 @@ using Eventures.Models;
 
 namespace Eventures.ViewModels
 {
-    public class RegisterViewModel : IMapTo<EventuresUser>
+    public class RegisterViewModel
     {
         [Required]
         [Display(Name = "Username")]

@@ -1,6 +1,27 @@
-﻿@using Eventures.Areas.Event.Components
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
 
+@model IEnumerable<Eventures.Areas.Event.ViewModels.EventureEventViewModel>
 
-<div class="container">
-    @await Component.InvokeAsync(typeof(EventsComponent));
-</div>
+@{
+    ViewBag.Title = "Events";
+}
+<h1>Events:</h1>
+
+@foreach (var eventureEvent in Model)
+{
+    <div class="row">
+        <label>Name: </label>
+        <h4>@eventureEvent.Name</h4>
+        <label>Place: </label>
+        <h4>@eventureEvent.Place</h4>
+        <label>Price: </label>
+        <h4>@eventureEvent.TicketPrice</h4>
+        -------------------
+    </div>
+}
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
+@*<div class="container">
+        @await Component.InvokeAsync(typeof(EventsComponent));
+    </div>*@

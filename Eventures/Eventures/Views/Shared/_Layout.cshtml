@@ -30,11 +30,12 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand" style="font-weight: bold; color: black">Eventures</a>
+                <a asp-area="Event" asp-controller="Events" asp-action="Index" class="navbar-brand" style="font-weight: bold; color: black">Events</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index" style="color: black; font-weight: bold">Home</a></li>
-
+                
                     <!--Administrator have access to Events and Orders-->
                     <!--TODO: FIX THIS-->
                     @if (this.User.IsInRole("ADMIN"))
@@ -44,18 +45,17 @@
                             <a style="color: black; font-weight: bold" class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Events<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a asp-area="" asp-controller="Events" asp-action="All">All Events</a></li>
-                                @*<li><a asp-area="" asp-controller="Events" asp-action="MyEvents" asp-route-id="@this.UserManager.GetUserId(this.User)">My Events</a></li>*@
-                                <li><a asp-area="" asp-controller="Events" asp-action="Create">Create Event</a></li>
+                                <li></li>
                             </ul>
                         </li>
 
                         <!--Orders-->
                         @*<li class="dropdown">
-                                <a style="color: black; font-weight: bold" class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Orders<span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a asp-area="" asp-controller="Orders" asp-action="All">All Orders</a></li>
-                                </ul>
-                            </li>*@
+                <a style="color: black; font-weight: bold" class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Orders<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a asp-area="" asp-controller="Orders" asp-action="All">All Orders</a></li>
+                </ul>
+            </li>*@
                     }
 
                     <!--User have access to Events-->

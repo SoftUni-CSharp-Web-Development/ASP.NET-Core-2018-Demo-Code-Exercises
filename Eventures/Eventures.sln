@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventures", "Eventures\Eventures.csproj", "{B97C0FE6-82D7-4795-B4A0-89534B41FA9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventures", "Eventures\Eventures.csproj", "{B97C0FE6-82D7-4795-B4A0-89534B41FA9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventures.Data", "Eventures.Data\Eventures.Data.csproj", "{D98613BF-305E-4C30-8125-3C72C819E7C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventures.Data", "Eventures.Data\Eventures.Data.csproj", "{D98613BF-305E-4C30-8125-3C72C819E7C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventures.Models", "Eventures.Models\Eventures.Models.csproj", "{84DA21A6-FAAB-4931-B4C3-A9B79E9DAFA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventures.Models", "Eventures.Models\Eventures.Models.csproj", "{84DA21A6-FAAB-4931-B4C3-A9B79E9DAFA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eventures.Services", "Eventures.Services\Eventures.Services.csproj", "{B1093504-A769-4F6E-9666-11AF9C3201F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eventures.Services", "Eventures.Services\Eventures.Services.csproj", "{B1093504-A769-4F6E-9666-11AF9C3201F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

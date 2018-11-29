@@ -16,6 +16,7 @@ using Eventures.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Sieve.Services;
 
 namespace Eventures
 {
@@ -66,6 +67,7 @@ namespace Eventures
                     facebookOptions.Scope.Add("instagram_basic");
                 });
             services.AddAutoMapper();
+            services.AddScoped<SieveProcessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -98,14 +100,17 @@ namespace Eventures
 
             app.UseMvc(routes =>
             {
+                //routes.MapAreaRoute()
                 routes.MapRoute(
                     name: "areas",
-                    template: "{area}/{controller=Home}/{action=Index}/{id?}"
+                    template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
                 );
 
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+
+               
             });
         }
     }
