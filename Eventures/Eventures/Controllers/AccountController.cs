@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using AutoMapper;
 using Eventures.Models;
+using Eventures.Services.Eventures.Web.Services.EveturesUsers;
 using Eventures.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,13 +12,16 @@ namespace Eventures.Controllers
     public class AccountController : Controller
     {
         private SignInManager<EventuresUser> signIn;
+        private readonly IEventuresUsersService usersService;
         private readonly IMapper mapper;
 
         public AccountController(
             SignInManager<EventuresUser> signIn,
+            IEventuresUsersService usersService,
             IMapper mapper)
         {
             this.signIn = signIn;
+            this.usersService = usersService;
             this.mapper = mapper;
         }
 
@@ -30,9 +34,9 @@ namespace Eventures.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-            var user = this.signIn.UserManager.Users.FirstOrDefault(u => u.UserName == model.Username);
+            var user = this.usersService.GetByUsername(model.Username);
             this.signIn.SignInAsync(user, model.RememberMe).Wait();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Events", new {area ="Event"});
         }
 
         public IActionResult Register()

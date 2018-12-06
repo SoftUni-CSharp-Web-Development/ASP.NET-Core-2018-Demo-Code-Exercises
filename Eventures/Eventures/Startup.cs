@@ -12,6 +12,8 @@ using Eventures.Middlewares.MiddlewareExtensions;
 using Eventures.Models;
 using Eventures.Services.Eventures.Web.Services.EventureEvents;
 using Eventures.Services.Eventures.Web.Services.EventureEvents.Contracts;
+using Eventures.Services.Eventures.Web.Services.EventuresOrders.Contracts;
+using Eventures.Services.Eventures.Web.Services.EveturesUsers;
 using Eventures.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -57,7 +59,6 @@ namespace Eventures
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddLogging();
-            services.AddScoped<IEventuresEventsService, EventuresEventsService>();
             services.AddScoped<LogUserActivityActionFilter>();
             services.AddAuthentication()
                 .AddFacebook(facebookOptions =>
@@ -68,6 +69,10 @@ namespace Eventures
                 });
             services.AddAutoMapper();
             services.AddScoped<SieveProcessor>();
+
+            services.AddScoped<IEventuresEventsService, EventuresEventsService>();
+            services.AddScoped<IEventuresUsersService, IEventuresUsersService>();
+            services.AddScoped<IEventuresOrdersService, IEventuresOrdersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
