@@ -12,12 +12,12 @@ namespace Eventures.Controllers
     public class AccountController : Controller
     {
         private SignInManager<EventuresUser> signIn;
-        private readonly IEventuresUsersService usersService;
+        private readonly EventuresUsersService usersService;
         private readonly IMapper mapper;
 
         public AccountController(
             SignInManager<EventuresUser> signIn,
-            IEventuresUsersService usersService,
+            EventuresUsersService usersService,
             IMapper mapper)
         {
             this.signIn = signIn;

@@ -7,6 +7,6 @@ namespace Eventures.Services.Eventures.Web.Services.EventureEvents.Contracts
     {
         IQueryable<EventureEvent> All();
 
-        IQueryable<EventureEvent> AllOrderedByTicketPrices();
+        IQueryable<EventureEvent> AllOrderedByTicketPrice();
     }
 }

@@ -30,7 +30,7 @@ namespace Eventures.Areas.Event.Controllers
         [ServiceFilter(typeof(LogUserActivityActionFilter))]
         public IActionResult Index(int? page)
         {
-            var events = this.eventsService.AllOrderedByTicketPrices();
+            var events = this.eventsService.AllOrderedByTicketPrice();
             var viewModels = new List<EventureEventViewModel>();
 
             foreach (var eventureEvent in events)

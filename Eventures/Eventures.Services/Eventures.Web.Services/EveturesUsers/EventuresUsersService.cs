@@ -5,11 +5,11 @@ using Eventures.Services.Eventures.Web.Services.EveturesUsers.Contracts;
 
 namespace Eventures.Services.Eventures.Web.Services.EveturesUsers
 {
-    public class IEventuresUsersService : Contracts.IEventuresUsersService
+    public class EventuresUsersService : Contracts.IEventuresUsersService
     {
         private EventuresDbContext context;
 
-        public IEventuresUsersService(EventuresDbContext context)
+        public EventuresUsersService(EventuresDbContext context)
         {
             this.context = context;
         }

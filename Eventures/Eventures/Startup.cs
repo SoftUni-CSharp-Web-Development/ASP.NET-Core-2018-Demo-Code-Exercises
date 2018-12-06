@@ -12,6 +12,7 @@ using Eventures.Middlewares.MiddlewareExtensions;
 using Eventures.Models;
 using Eventures.Services.Eventures.Web.Services.EventureEvents;
 using Eventures.Services.Eventures.Web.Services.EventureEvents.Contracts;
+using Eventures.Services.Eventures.Web.Services.EventuresOrders;
 using Eventures.Services.Eventures.Web.Services.EventuresOrders.Contracts;
 using Eventures.Services.Eventures.Web.Services.EveturesUsers;
 using Eventures.ViewModels;
@@ -71,8 +72,8 @@ namespace Eventures
             services.AddScoped<SieveProcessor>();
 
             services.AddScoped<IEventuresEventsService, EventuresEventsService>();
-            services.AddScoped<IEventuresUsersService, IEventuresUsersService>();
-            services.AddScoped<IEventuresOrdersService, IEventuresOrdersService>();
+            services.AddScoped<EventuresUsersService, EventuresUsersService>();
+            services.AddScoped<IEventuresOrdersService, EventuresOrdersService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

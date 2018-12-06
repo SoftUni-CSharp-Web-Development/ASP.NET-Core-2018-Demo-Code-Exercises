@@ -2,7 +2,7 @@
 
 namespace Eventures.Services.Eventures.Web.Services.EveturesUsers.Contracts
 {
-    public interface IUsersService
+    public interface IEventuresUsersService
     {
         EventuresUser GetByUsername(string username);
     }

@@ -16,20 +16,19 @@ namespace Eventures.Controllers
     public class HomeController : Controller
     {
         private readonly IEventuresOrdersService ordersService;
-        private readonly IMapper _mapper;
+        private readonly IMapper mapper;
 
         public HomeController(
-            EventuresDbContext context,
-            IMapper mapper,
-            IEventuresOrdersService ordersService)
+            IEventuresOrdersService ordersService,
+           IMapper mapper)
         {
-            _mapper = mapper;
+            this.mapper = mapper;
             this.ordersService = ordersService;
         }
         public IActionResult Index()
         {
             var orders = this.ordersService.AllWithEvents().FirstOrDefault();
-            var viewModel = _mapper.Map<EventureEventViewModel>(orders);
+          //  var viewModel = mapper.Map<EventureEventViewModel>(orders);
             return View();
         }
 

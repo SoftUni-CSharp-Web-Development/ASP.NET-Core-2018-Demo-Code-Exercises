@@ -16,7 +16,8 @@ namespace Eventures.Services.Eventures.Web.Services.EventureEvents
 
         public IQueryable<EventureEvent> All() => this.context.EventureEvents;
 
-        public IQueryable<EventureEvent> AllOrderedByTicketPrices()
-            => this.All().OrderBy(ee => ee.TicketPrice);
+        public IQueryable<EventureEvent> AllOrderedByTicketPrice()
+            => this.All()
+                .OrderBy(ee => ee.TicketPrice);
     }
 }
